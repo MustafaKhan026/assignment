@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Main from './components/Main';
+import Sidebar from './components/Sidebar';
 
 function App() {
+  const [show,setShow] = useState(true)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{width:"25%",height:"100%"}}>
+      <Sidebar show={show}/>
+
+      </div>
+      <div style={{width:"75%"}}>
+
+      <Main setShow={setShow} show={show}/>
+      </div>
     </div>
   );
 }
